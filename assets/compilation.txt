@@ -1,0 +1,2 @@
+py -m pip install PyInstaller
+py -m PyInstaller --icon=ico2.ico MagicTwix1.X.py
