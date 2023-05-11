@@ -1,0 +1,53 @@
+1.0: 1W Première version
+- Vérification bibliothèque et installation
+- Accès admin pour pouvoir utiliser le programme + mot de passe caché avec getpass()
+- Gestion des exceptions sur les entrées utilisateurs
+- Pour les opérations nécessitant PsExec est utilisé et une fonction permet de vérifier automatiquement son emplacement et de l'installer en toute sécurité (téléchargement depuis un github créé pour héberger le PsExec du dossier deploiement de l'ag2r, décompression avec zipfile, suppression avec os, copie forcé avec shutil ect)
+- boucle GUI permettant de choisir l'action à effectuer, celles ci offrent certains détails du résultat :
+ - Saisie de données pour les variables globales du programme (+ INPUT automatique lors du lancement d'une opération nécessitant une donnée)
+ - Ping d'un poste et détermine l'emplacement du poste : site ou TT (subprocess ouvrant un shell en arrière plan + affichage de la commande effectuer (ping, flushdns, register dns ect)
+ - Activation PromptMcAfee (PsExec + Définition des droits admin à distance avec cmdkey + décodage du résultat depuis CP437)
+ - Désactivation PromptMcAfee (Gestion des paramètres à mettre ou non et création de la commande à envoyer en PsExec sur subprocess)
+ - Actualisation et MAJ McAfee (ouverture de l'agent en ligne de commande sur le poste cible et boucle effectuant 5 fois les actions de collection/envoie évenements et autres McAfee dans un ordre précis, équivalent au moniteur d'agent graphique)
+ - HS: Ajout utilisateur McAfee...
+ - Mise à jour critique Lenovo System Update...
+ - Déploiement d'applications nécessaires...
+ - Déploiement d'applications choix manuel...
+ - Suppression d'applications choix manuel...
+ - Fonction effectuant toutes les étapes nécessaires pour un poste portable...
+- Ajout d'une page de conseils MagicTwix s'affichant à chaque démarrage
+
+1.1: 1D
+- Correction de bugs + langue
+- Ajout d'une option "Quitter"
+- Ajout d'un accès non-admin
+- Ajout d'un logo sur le .exe
+- Ajout d'une signature
+
+1.2: 1D
+- Optimisation du ping
+- Création du répértoire MagicTwix et du fichier version.txt
+- Création d'un dossier dans /ProgramData pour de petites données (driver selenium)
+- Ajout d'une musique
+
+1.3: 1D
+- Correction de bugs
+- Correction de bug critique : Installation impossible de PsExec sur un poste ne le possédant pas (problème de copie de dossier)
+- Updating de Lenovo System Update 5.07.0136 en 5.07.0137
+- L'option -A dans la commande du System Update permet de rajouter toutes les MAJ à installer, l'ajout d'un paramètre -C est une sécurité supplémentaire pour l'installation des mise à jours critiques
+- Vérification que le system update téléchargé ne soit pas obselète, une alerte est envoyé si c'est le cas
+
+1.4: 1D 
+- Mot de passe désormais caché dans logs de la console
+- Ajout d'un délai dans l'actualisation McAfee pour éviter un blocage
+- Separation de la commande d'actualisation McAfee en 4 subprocess différents
+- Precision d'un chemin absolu pour le PsExec installé (si non trouvé dans les variables d'environnements)
+- Correction d'une bug causant un crash de MagicTwix lorsque le fichier Temp était inexistant sur l'ordinateur cible
+
+1.5: 1D 29/09/2022
+- Ajout affichage version MagicTwix + Lenovo System Update utilisé dans le menu
+- Acceptation de la eula PsExec pour éviter l'affichage d'un message d'erreur dans la console MagicTwix
+- Updating de Lenovo System Update 5.07.0137 en 5.07.0139
+- Hebergement privé de system update 5.07.0139 en cas de suppression du site officiel après une sortie d'autres versions
+- En cas d'erreur/telechargement impossible, MagicTwix bascule sur le téléchargement system update version 5.07.0139 du site officiel
+- Lecture d'un fichier git permettant d'afficher la précense d'une nouvelle mise à jour MagicTwix au démarrage
